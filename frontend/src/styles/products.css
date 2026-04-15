@@ -1,0 +1,228 @@
+/* --- SECTION & BACKGROUND --- */
+.modern-store-section {
+  background-color: #F8F6F0; /* Cream background */
+  padding: 100px 40px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #111;
+}
+
+.modern-store-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* --- MODERN HEADER --- */
+.modern-header {
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba(99, 107, 47, 0.2); /* Soft olive line */
+  padding-bottom: 20px;
+}
+
+.modern-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.8rem;
+  margin: 0 0 8px 0;
+  color: #111;
+}
+
+.modern-subtitle {
+  margin: 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.header-count span {
+  background-color: #E8E4D6;
+  color: #3A3F23;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* --- THE ELEVATED GRID --- */
+.modern-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px; /* Slightly wider gap for a premium, uncrowded feel */
+}
+
+/* --- THE CARD --- */
+.modern-card {
+  background-color: transparent; /* No box around the whole thing */
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+/* --- IMAGE AREA (The Magic Happens Here) --- */
+.mc-image-area {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5; /* Premium portrait layout */
+  border-radius: 20px;
+  overflow: hidden; /* Keeps the zooming image inside the rounded corners */
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft shadow */
+  background-color: #eaeaea;
+}
+
+.mc-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.modern-card:hover .mc-image {
+  transform: scale(1.05); /* Image softly zooms when hovering the card */
+}
+
+/* Floating Tags */
+.mc-tags {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.mc-tag {
+  background-color: rgba(253, 253, 248, 0.85); /* Frosted cream */
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.category-tag {
+  color: #3A3F23; /* Dark Olive */
+}
+
+.note-tag {
+  color: #888;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* Quick Add Button (Hidden by default, slides up on hover) */
+.mc-quick-add {
+  position: absolute;
+  bottom: -60px; /* Hidden below the image */
+  left: 15px;
+  right: 15px;
+  background-color: #636B2F; /* Olive green */
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 3;
+}
+
+.modern-card:hover .mc-quick-add {
+  bottom: 15px; /* Slides up smoothly! */
+}
+
+.mc-quick-add:hover {
+  background-color: #3A3F23;
+}
+
+/* --- TEXT DETAILS AREA --- */
+.mc-info-area {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px; /* Slight indent so text aligns beautifully */
+}
+
+.mc-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 12px;
+}
+
+.mc-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  margin: 0;
+  color: #111;
+  line-height: 1.2;
+}
+
+.mc-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #636B2F; /* Olive Green price text */
+}
+
+.mc-desc {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Keeps descriptions exactly 2 lines long */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+  .modern-store-section {
+    padding: 60px 20px;
+  }
+  
+  .modern-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  /* Make Quick Add always visible on mobile since there is no hover */
+  .mc-quick-add {
+    bottom: 15px;
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+  
+  .modern-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile/tablet */
+    gap: 20px;
+  }
+  
+  .mc-title {
+    font-size: 1.1rem;
+  }
+  
+  .mc-price {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modern-grid {
+    grid-template-columns: 1fr; /* 1 column on tiny screens */
+  }
+}

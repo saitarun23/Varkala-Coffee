@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap');
+/* Container for the whole hero section */
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 500px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Changed from flex-end to center for a better cinematic focus */
+}
+
+/* The actual video element */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Optional: Adds a slight dark tint so white text pops better */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35); /* Slightly darker for better contrast */
+  z-index: 2;
+}
+
+/* Text Container */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+}
+
+/* Typography for the Title */
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+
+/* Shared styles for both words */
+.title-word {
+  font-size: 4.5rem; /* Slightly larger */
+  font-weight: 750;
+  line-height: 1;
+  /* text-transform: uppercase; */
+  
+  /* Initial state for the animation */
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Styling for "VARKALA" (Solid & Glowing) */
+.brand-name {
+  font-family: 'Cinzel', serif;
+  color: #ffffff;
+  letter-spacing: 22px;
+  margin-right: -25px; /* Centers text perfectly when letter-spacing is high */
+  text-shadow: 0px 10px 30px rgba(0, 0, 0, 0.8); /* Cinematic drop shadow */
+  animation-delay: 0.2s; /* Starts animation a bit later */
+}
+
+/* Styling for "COFFEE" (Hollow / Outlined) */
+.product-name {
+  color: transparent; /* Makes the inside of the letters invisible */
+  -webkit-text-stroke: 2px #ffffff; /* Creates the white outline */
+  letter-spacing: 15px;
+  margin-right: -15px;
+  margin-top: 10px;
+  animation-delay: 0.5s; /* Comes in slightly after VARKALA */
+}
+
+/* The Smooth Fade-Up Animation */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .title-word {
+    font-size: 3.5rem;
+  }
+  .brand-name {
+    letter-spacing: 12px;
+    margin-right: -12px;
+  }
+  .product-name {
+    letter-spacing: 8px;
+    margin-right: -8px;
+    -webkit-text-stroke: 1.5px #ffffff; /* Thinner stroke on mobile */
+  }
+  .hero-container {
+    height: 60vh;
+  }
+}

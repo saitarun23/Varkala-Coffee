@@ -1,0 +1,277 @@
+/* --- SECTION BACKGROUND --- */
+.experience-section {
+  background-color: #636B2F; /* Rich Olive Green to contrast the cream sections */
+  color: #FDFDF8; /* Cream text */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 120px;
+}
+
+/* --- INFINITE MARQUEE --- */
+.marquee-container {
+  width: 100%;
+  background-color: #111; /* Dark contrasting bar */
+  color: #D2C49A; /* Sand color */
+  padding: 15px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  margin-bottom: 100px;
+}
+
+.marquee-content {
+  display: inline-flex;
+  align-items: center;
+  /* Adjust the '20s' to make it scroll faster or slower */
+  animation: marqueeScroll 20s linear infinite;
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+}
+
+.marquee-dot {
+  margin: 0 30px;
+  font-size: 1.5rem;
+  color: #FDFDF8;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Scrolls exactly half to loop perfectly */
+}
+
+/* --- MAIN CONTAINER --- */
+.experience-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 0 40px;
+}
+
+/* --- LEFT SIDE: TEXT --- */
+.experience-text-content {
+  flex: 1;
+  max-width: 500px;
+  z-index: 2;
+}
+
+.experience-title {
+  font-family: 'Cinzel', serif;
+  font-size: 4.5rem;
+  line-height: 1.1;
+  margin: 0 0 30px 0;
+  color: #FDFDF8;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.experience-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #DDE0C5; /* Very light sage for paragraph text */
+  margin-bottom: 50px;
+}
+
+/* Location and Hours */
+.location-details {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.detail-icon {
+  color: #D2C49A; /* Sand colored icons */
+  margin-top: 5px;
+}
+
+.detail-heading {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 8px 0;
+  color: #D2C49A;
+}
+
+.detail-text {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #FDFDF8;
+}
+
+/* Minimalist Button */
+.visit-btn {
+  background-color: #FDFDF8;
+  color: #636B2F;
+  border: none;
+  padding: 16px 35px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.visit-btn:hover {
+  background-color: #D2C49A;
+  color: #111;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* --- RIGHT SIDE: OVERLAPPING VISUALS --- */
+.experience-visuals {
+  flex: 1.2;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 600px;
+}
+
+/* Main Background Image */
+.visual-main {
+  width: 75%;
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.exp-img-main {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.visual-main:hover .exp-img-main {
+  transform: scale(1.05); /* Slow zoom on hover */
+}
+
+/* Smaller Overlapping Image */
+.visual-overlap {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  width: 45%;
+  aspect-ratio: 1 / 1; /* Perfect Square */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: -10px 15px 40px rgba(0,0,0,0.4);
+  z-index: 2;
+  border: 8px solid #636B2F; /* Creates a frame using the background color */
+}
+
+.exp-img-overlap {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Rotating SVG Stamp */
+.rotating-stamp {
+  position: absolute;
+  top: -30px;
+  right: 60%;
+  width: 120px;
+  height: 120px;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.rotating-stamp svg {
+  animation: spin 12s linear infinite; /* Keeps the text spinning forever */
+  position: absolute;
+}
+
+.stamp-center-icon {
+  font-size: 1.8rem;
+  z-index: 4;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 1024px) {
+  .experience-container {
+    flex-direction: column;
+    gap: 80px;
+  }
+  
+  .experience-text-content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .location-details {
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .detail-item {
+    text-align: left;
+  }
+
+  .experience-visuals {
+    width: 100%;
+    justify-content: center;
+    min-height: auto;
+  }
+
+  .rotating-stamp {
+    right: 0;
+    top: -50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-title {
+    font-size: 3.5rem;
+  }
+  
+  .location-details {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .detail-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .visual-main {
+    width: 100%;
+  }
+
+  .visual-overlap {
+    width: 55%;
+    left: -10px;
+  }
+}

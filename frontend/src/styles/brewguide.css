@@ -1,0 +1,248 @@
+/* --- DARK PREMIUM BACKGROUND --- */
+.ritual-section {
+  /* Very deep espresso/olive black for contrast */
+  background-color: #1A1C14; 
+  padding: 120px 40px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #F8F6F0; /* Cream text */
+}
+
+.ritual-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- HEADER --- */
+.ritual-header {
+  margin-bottom: 80px;
+}
+
+.ritual-eyebrow {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #D2C49A; /* Sand/Latte color */
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.ritual-title {
+  font-family: 'Cinzel', serif;
+  font-size: 3.5rem;
+  margin: 0;
+  color: #FDFDF8;
+  letter-spacing: 1px;
+}
+
+/* --- SPLIT LAYOUT --- */
+.ritual-split-layout {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+}
+
+/* --- LEFT SIDE: VERTICAL MENU --- */
+.ritual-menu {
+  flex: 0 0 30%; /* Takes up 30% of the width */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  padding-left: 30px;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 15px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: rgba(255, 255, 255, 0.4); /* Dimmed text for inactive */
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.menu-number {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.menu-name {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  transition: transform 0.4s ease;
+}
+
+/* Active Button State */
+.menu-btn.active-btn {
+  color: #FDFDF8; /* Bright white/cream */
+}
+
+.menu-btn.active-btn .menu-name {
+  transform: translateX(10px); /* Slides the active text slightly right */
+  color: #D2C49A; /* Turns active text to sand color */
+}
+
+/* A glowing dot to indicate the active tab */
+.menu-btn::before {
+  content: '';
+  position: absolute;
+  left: -31px; /* Align with the border */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 0;
+  background-color: #D2C49A;
+  transition: height 0.4s ease;
+}
+
+.menu-btn.active-btn::before {
+  height: 100%; /* Line grows when active */
+}
+
+
+/* --- RIGHT SIDE: DYNAMIC CONTENT --- */
+.ritual-content {
+  flex: 1;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Image Styling */
+.ritual-image-wrapper {
+  flex: 1;
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 24px; /* Curved borders to match products */
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.ritual-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease;
+}
+
+.img-hidden {
+  opacity: 0;
+  transform: scale(1.05); /* Slight zoom out when fading in */
+  pointer-events: none;
+}
+
+.img-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Info & Stats */
+.ritual-info {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.info-tagline {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+  color: #FDFDF8;
+  line-height: 1.3;
+}
+
+.info-paragraph {
+  font-size: 1rem;
+  color: #A0A977; /* Sage green for text */
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* Specs Grid (Temp, Time, etc) */
+.specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.spec-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.spec-icon {
+  color: #D2C49A;
+}
+
+.spec-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 3px;
+}
+
+.spec-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #FDFDF8;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 1024px) {
+  .ritual-split-layout {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 50px;
+  }
+
+  .ritual-menu {
+    width: 100%;
+    flex-direction: row;
+    border-left: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-left: 0;
+    padding-bottom: 20px;
+    overflow-x: auto; /* Allow scrolling menu on mobile */
+  }
+
+  .menu-btn::before {
+    top: auto;
+    bottom: -21px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    transition: width 0.4s ease;
+  }
+
+  .menu-btn.active-btn::before {
+    width: 100%;
+    height: 3px;
+  }
+
+  .ritual-content {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ritual-image-wrapper {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
