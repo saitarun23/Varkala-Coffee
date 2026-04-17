@@ -62,9 +62,9 @@
   flex-direction: column;
   font-family: "Italiana", sans-serif;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 2px;
-  color: #ffffff; 
+  color: #D2C49A; 
   line-height: 1.4;
   opacity: 0.9;
 }
@@ -82,6 +82,8 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  /* padding-top: 70px; */
+  
   flex-wrap: nowrap; /* ✨ FORCES A SINGLE LINE */
   font-family: "Italiana", sans-serif;
   align-items: center;
