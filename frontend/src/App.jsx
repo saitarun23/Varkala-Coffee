@@ -16,23 +16,25 @@ function App() {
       <Navbar />
       
       {/* Routes control what goes in the middle based on the URL */}
-      <Routes>
-        
-        {/* The Home Page Route */}
-        <Route path="/" element={
-          <>
-            <Hero />
-            <Discover />
-            <Products />
-            <Experience />
-          </>
-        } />
-        
-        {/* The Specialty Coffee Page Route */}
-        <Route path="/specialty-coffee" element={<SpecialityCoffee />} />
-        <Route path="/Signature-Blends" element={<SignatureBlends />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
-      </Routes>
+      <main style={{ paddingTop: '137px' }}>
+        <Routes>
+          
+          {/* The Home Page Route */}
+          <Route path="/" element={
+            <>
+              <Hero />
+              <Discover />
+              <Products />
+              <Experience />
+            </>
+          } />
+          
+          {/* The Specialty Coffee Page Route */}
+          <Route path="/specialty-coffee" element={<SpecialityCoffee />} />
+          <Route path="/Signature-Blends" element={<SignatureBlends />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+        </Routes>
+      </main>
 
       {/* Footer stays at the bottom of EVERY page */}
       <Footer />

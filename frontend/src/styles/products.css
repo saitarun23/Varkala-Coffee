@@ -1,7 +1,7 @@
 /* --- SECTION & BACKGROUND --- */
 .modern-store-section {
-  background-color: #F8F6F0; /* Cream background */
-  padding: 100px 40px;
+  background-color: #f5f5f5; 
+  padding: 10px 40px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: #111;
 }
@@ -48,8 +48,8 @@
 /* --- THE ELEVATED GRID --- */
 .modern-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 40px; /* Slightly wider gap for a premium, uncrowded feel */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px; /* Slightly wider gap for a premium, uncrowded feel */
 }
 
 /* --- THE CARD --- */
@@ -121,12 +121,12 @@
 .mc-quick-add {
   position: absolute;
   bottom: -60px; /* Hidden below the image */
-  left: 15px;
-  right: 15px;
+  left: 10px;
+  right: 10px;
   background-color: #636B2F; /* Olive green */
   color: #ffffff;
   border: none;
-  padding: 14px;
+  padding: 10px;
   border-radius: 12px;
   font-weight: 600;
   font-size: 0.95rem;

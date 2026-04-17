@@ -1,12 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/navbar.css';
 import { Search, User, ShoppingCart, ChevronDown } from 'lucide-react';
 import logo from '../assets/images/logo1.png';
 
 const Navbar = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Show navbar when scrolling up, hide when scrolling down
+      if (currentScrollY < lastScrollY) {
+        setIsVisible(true); // Scrolling up
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false); // Scrolling down (only after 100px scroll)
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <header className="navbar-container">
+    <header className={`navbar-container ${isVisible ? 'visible' : 'hidden'}`}>
       <div className="main-header">
          
          {/* Brand Section - NOW WRAPPED IN A LINK TO "/" */}
@@ -18,9 +39,9 @@ const Navbar = () => {
            <div className="brand-divider"></div>
            
            <div className="brand-text">
-             <span>COFFEE</span>
-             <span>ROASTERS &</span>
-             <span>BAKEHOUSE</span>
+             <span>Coffee</span>
+             <span>Roasters &</span>
+             <span>Bakehouse</span>
            </div>
          </Link>
 

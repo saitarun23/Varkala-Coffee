@@ -47,7 +47,7 @@
 /* --- THE STAGGERED GRID --- */
 .editorial-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 40px;
   align-items: start;
 }
@@ -150,7 +150,7 @@
 
 .card-title {
   font-family: 'Cinzel', serif;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   margin: 0 0 15px 0;
   color: #111;
 }

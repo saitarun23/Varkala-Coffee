@@ -103,7 +103,7 @@ const Products = () => {
                 {/* Hidden "Quick Add" button that slides up on hover */}
                 <button className="mc-quick-add">
                   <ShoppingBag size={18} />
-                  <span>Add To Cart</span>
+                  <span>Add To Bag</span>
                 </button>
               </div>
 

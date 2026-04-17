@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/specialitycoffee.css';
 import { ArrowRight, Leaf, Droplets, MapPin } from 'lucide-react';
 
@@ -6,68 +7,79 @@ import { ArrowRight, Leaf, Droplets, MapPin } from 'lucide-react';
 import coffee1 from '../assets/images/product1.jpeg';
 import coffee2 from '../assets/images/product4.jpeg';
 import coffee3 from '../assets/images/product2.jpeg'; 
+import coffee4 from '../assets/images/product3.jpeg';
 
-// IMPORT YOUR LOCAL VIDEO HERE
-// Make sure you create a 'videos' folder in assets and put an mp4 file there
+// Import your local video
 import heroVideo from '../assets/images/herovideo.mp4'; 
 
 const SpecialityCoffee = () => {
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const collection = [
     {
-      id: "01",
-      name: "Monsoon Malabar",
+      id: "1", // Updated IDs to match your ProductDetails database
+      name: "100% Arabica",
       roast: "Medium-Dark",
       notes: "Earthy, Dark Chocolate, Spiced",
       price: "₹850",
       image: coffee1
     },
     {
-      id: "02",
-      name: "Attikan Estate",
-      roast: "Medium",
+      id: "2", 
+      name: "Robusta",
+      roast: "Dark",
       notes: "Roasted Nuts, Caramel, Red Apple",
-      price: "₹750",
+      price: "₹900",
       image: coffee2
     },
     {
-      id: "03",
-      name: "Pulp Sun Dried",
-      roast: "Light-Medium",
+      id: "3", 
+      name: "Arabica Peaberry", // Just using your DB items so links work perfectly!
+      roast: "Fresh Baked",
       notes: "Jasmine, Black Tea, Bergamot",
-      price: "₹900",
+      price: "₹300",
       image: coffee3
+    },
+    {
+      id: "4",
+      name: "Limited Edition Blend",
+      roast: "Medium",
+      notes: "Citrus, Floral, Nutty",
+      price: "₹1,200",
+      image: coffee4
     }
   ];
 
   return (
     <div className="speciality-page">
       
-      {/* --- EDITORIAL HERO SECTION (UPDATED WITH VIDEO) --- */}
-      <section className="sp-hero">
-        <div className="sp-hero-content">
-          <span className="sp-eyebrow">The Origin Series</span>
-          <h1 className="sp-title">Specialty<br/>Coffee</h1>
-          <p className="sp-hero-desc">
-            Sourced ethically from India's finest high-altitude estates. Roasted meticulously in-house to highlight the unique terroir of every bean.
-          </p>
-        </div>
-        
-        <div className="sp-hero-visual">
-          <div className="sp-video-frame">
-            <video 
-              src={heroVideo} 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              className="sp-hero-video"
-            />
-          </div>
+      {/* --- FULL SCREEN CINEMATIC HERO --- */}
+      <section className="sp-fullscreen-hero">
+        <video 
+          className="sp-hero-video-bg" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+
+        <div className="sp-hero-overlay"></div>
+
+        <div className="sp-hero-content-center">
+          <h1 className="sp-hero-title-main">
+            <span className="title-solid">Specialty</span>
+            <span className="title-outline">Coffee</span>
+          </h1>
         </div>
       </section>
 
       {/* --- THE PHILOSOPHY BANNER --- */}
-      <section className="sp-philosophy">
+      {/* <section className="sp-philosophy">
         <div className="sp-phil-container">
           <div className="phil-item">
             <MapPin className="phil-icon" size={28} />
@@ -85,7 +97,7 @@ const SpecialityCoffee = () => {
             <p>Direct relationships ensuring fair wages for local farmers.</p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* --- THE COLLECTION SHOWCASE --- */}
       <section className="sp-collection">
@@ -96,32 +108,34 @@ const SpecialityCoffee = () => {
 
         <div className="sp-grid">
           {collection.map((item) => (
-            <article key={item.id} className="sp-card">
-              
-              <div className="sp-card-visual">
-                <span className="sp-card-number">{item.id}</span>
-                <img src={item.image} alt={item.name} className="sp-card-img" />
+            /* Wrapped the article in a Link to go to Product Details */
+            <Link to={`/product/${item.id}`} key={item.id} style={{textDecoration: 'none'}}>
+              <article className="sp-card">
                 
-                {/* Hidden overlay that appears on hover */}
-                <div className="sp-card-action">
-                  <span>View Details</span>
+                <div className="sp-card-visual">
+                  {/* <span className="sp-card-number">0{item.id}</span> */}
+                  <img src={item.image} alt={item.name} className="sp-card-img" />
+                  
+                  <div className="sp-card-action">
+                    <span>View Details</span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="sp-card-info">
-                <div className="sp-card-meta">
-                  <span>{item.roast} Roast</span>
-                  <span className="sp-price">{item.price}</span>
+                <div className="sp-card-info">
+                  <div className="sp-card-meta">
+                    <span>{item.roast}</span>
+                    <span className="sp-price">{item.price}</span>
+                  </div>
+                  <h3 className="sp-card-title">{item.name}</h3>
+                  <p className="sp-card-notes">{item.notes}</p>
+                  
+                  {/* <button className="sp-add-btn">
+                    Explore Profile <ArrowRight size={16} />
+                  </button> */}
                 </div>
-                <h3 className="sp-card-title">{item.name}</h3>
-                <p className="sp-card-notes">{item.notes}</p>
-                
-                <button className="sp-add-btn">
-                  Add to Bag <ArrowRight size={16} />
-                </button>
-              </div>
 
-            </article>
+              </article>
+            </Link>
           ))}
         </div>
       </section>

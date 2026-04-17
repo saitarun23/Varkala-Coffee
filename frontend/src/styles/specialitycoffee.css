@@ -1,88 +1,101 @@
 /* Import Boutique Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap');
 
 /* --- PAGE BASICS --- */
 .speciality-page {
-  background-color: #FDFDF8; /* Cream */
+  background-color: #f5f5f5; /* Cream */
   color: #495E35; /* Moss Green */
   font-family: 'Outfit', sans-serif;
   min-height: 100vh;
 }
 
-/* --- HERO SECTION --- */
-.sp-hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 100px 5%;
-  max-width: 1300px;
-  margin: 0 auto;
-  gap: 60px;
-}
-
-.sp-hero-content {
-  flex: 1;
-  max-width: 550px;
-}
-
-.sp-eyebrow {
-  display: block;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  color: #D2C49A; /* Sand/Gold */
-  margin-bottom: 20px;
-  font-weight: 500;
-}
-
-.sp-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 6.5rem;
-  font-weight: 500;
-  line-height: 0.95;
-  margin: 0 0 30px 0;
-  color: #495E35;
-}
-
-.sp-hero-desc {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: rgba(73, 94, 53, 0.8); /* Slightly muted green */
-  font-weight: 300;
-}
-
-.sp-hero-visual {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* SLEEK NEW VIDEO FRAME */
-.sp-video-frame {
-  width: 80%;
-  max-width: 500px;
-  aspect-ratio: 4 / 5; /* Premium portrait ratio */
-  border-radius: 24px; /* Clean, modern curves instead of an arch */
+/* --- FULL SCREEN CINEMATIC HERO --- */
+.sp-fullscreen-hero {
+  position: relative;
+  width: 100%;
+  height: 90vh; /* Takes up most of the screen */
+  min-height: 500px;
   overflow: hidden;
-  box-shadow: 0 30px 60px rgba(73, 94, 53, 0.15); /* Soft glowing shadow */
-  background-color: #E8E5DA; /* Placeholder color while video loads */
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 }
 
-.sp-hero-video {
+.sp-hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the video fills the frame beautifully without stretching */
+  object-fit: cover;
+  z-index: 1;
+}
+
+.sp-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 30, 10, 0.4); /* Slight moss-tinted dark overlay */
+  z-index: 2;
+}
+
+.sp-hero-content-center {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+}
+
+.sp-hero-title-main {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.title-solid {
+  font-family: 'Cinzel', serif;
+  font-size: 5rem; 
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 12px;
+  margin-right: -12px; 
+  text-shadow: 0px 10px 30px rgba(0, 0, 0, 0.8); 
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.2s; 
+}
+
+.title-outline {
+  font-family: 'Cinzel', serif;
+  font-size: 5rem;
+  font-weight: 700;
+  color: transparent; 
+  -webkit-text-stroke: 2px #ffffff; 
+  letter-spacing: 15px;
+  margin-right: -15px;
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.5s; 
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* --- PHILOSOPHY BANNER --- */
 .sp-philosophy {
   background-color: #495E35; /* Moss Green Background */
-  color: #FDFDF8;
+  color: #f5f5f5;
   padding: 80px 5%;
 }
 
 .sp-phil-container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -120,7 +133,7 @@
 /* --- THE COLLECTION SHOWCASE --- */
 .sp-collection {
   padding: 120px 5%;
-  max-width: 1500px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -149,8 +162,8 @@
 /* The Grid */
 .sp-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 60px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
 }
 
 /* Product Card */
@@ -158,6 +171,7 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .sp-card:hover .sp-card-img {
@@ -168,7 +182,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 5;
-  background-color: #E8E5DA; /* Slightly darker cream for image box */
+  background-color: #f5f5f5; /* Slightly darker cream for image box */
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 30px;
@@ -209,13 +223,13 @@
 }
 
 .sp-card-action span {
-  background-color: #FDFDF8;
+  background-color: #f5f5f5;
   color: #495E35;
   padding: 12px 25px;
   border-radius: 30px;
   font-size: 0.9rem;
   font-weight: 500;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: 1px;
   transform: translateY(15px);
   transition: transform 0.4s ease;
@@ -246,12 +260,13 @@
 
 .sp-price {
   color: #495E35;
-  font-weight: 600;
+  font-weight: 900;
+  font-size: 1.4rem;
 }
 
 .sp-card-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2.2rem;
+  font-size: 1.7rem;
   font-weight: 500;
   color: #495E35;
   margin: 0 0 10px 0;
@@ -284,10 +299,6 @@
   transition: all 0.3s ease;
 }
 
-.sp-add-btn svg {
-  transition: transform 0.3s ease;
-}
-
 .sp-add-btn:hover {
   color: #D2C49A;
   border-color: #D2C49A;
@@ -299,29 +310,13 @@
 
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 1024px) {
-  .sp-hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 80px 5%;
+  .title-solid, .title-outline {
+    font-size: 4rem;
   }
-
-  .sp-hero-visual {
-    justify-content: center;
-    width: 100%;
-    margin-top: 40px;
-  }
-
-  /* Adjust video frame for mobile */
-  .sp-video-frame {
-    border-radius: 20px;
-    max-width: 100%;
-  }
-
   .sp-phil-container {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-
   .sp-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
@@ -329,9 +324,8 @@
 }
 
 @media (max-width: 768px) {
-  .sp-title {
-    font-size: 4rem;
-  }
+  .title-solid { font-size: 3.5rem; letter-spacing: 8px; margin-right: -8px;}
+  .title-outline { font-size: 3.5rem; letter-spacing: 8px; margin-right: -8px; -webkit-text-stroke: 1.5px #ffffff;}
   
   .sp-grid {
     grid-template-columns: 1fr;
