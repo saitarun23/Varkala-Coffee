@@ -10,7 +10,7 @@ import coffee3 from '../assets/images/product2.jpeg';
 import coffee4 from '../assets/images/product3.jpeg';
 
 // Import your local video
-import heroVideo from '../assets/images/herovideo.mp4'; 
+import heroVideo1 from '../assets/images/herovideo1.mp4'; 
 
 const SpecialityCoffee = () => {
   // Scroll to top when page loads
@@ -65,7 +65,7 @@ const SpecialityCoffee = () => {
           muted 
           playsInline
         >
-          <source src={heroVideo} type="video/mp4" />
+          <source src={heroVideo1} type="video/mp4" />
         </video>
 
         <div className="sp-hero-overlay"></div>

@@ -8,6 +8,10 @@ import Footer from "./components/Footer";
 import SpecialityCoffee from "./components/SpecialityCoffee";
 import SignatureBlends from "./components/SignatureBlends";
 import ProductDetails from "./components/ProductDetails";
+import Artisanalkunafa from "./components/Artisanalkunafa";
+import Pizza from "./components/Pizza";
+import Cookies from "./components/Cookies";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   return (
@@ -16,7 +20,7 @@ function App() {
       <Navbar />
       
       {/* Routes control what goes in the middle based on the URL */}
-      <main style={{ paddingTop: '137px' }}>
+      <main style={{ paddingTop: '190px' }}>
         <Routes>
           
           {/* The Home Page Route */}
@@ -32,6 +36,12 @@ function App() {
           {/* The Specialty Coffee Page Route */}
           <Route path="/specialty-coffee" element={<SpecialityCoffee />} />
           <Route path="/Signature-Blends" element={<SignatureBlends />} />
+          <Route path="/Artisanalkunafa" element={<Artisanalkunafa />} />
+          <Route path="/Cookies" element={<Cookies />} />
+          <Route path="/Pizza" element={<Pizza />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
+          
+          {/* The Product Details Page Route */}
           <Route path="/product/:id" element={<ProductDetails />} />
         </Routes>
       </main>

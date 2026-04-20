@@ -29,7 +29,7 @@
 /* Main Header Styles */
 .main-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: 15px 30px 22px 25px; /* Slightly reduced side padding */
   max-width: 1600px; /* Slightly wider to accommodate all links on one line */
   margin: 0 auto;
@@ -74,15 +74,17 @@
   flex: 1;
   display: flex;
   justify-content: flex-start; /* Aligns links right next to the logo */
+  margin-left: -140px; /* Push nav links to the left side, below brand text */
 }
 
 .main-nav > ul {
   display: flex;
-  gap: 2px; /* ✨ Reduced gap to fit all items perfectly */
+  gap: 18px; /* ✨ Reduced gap to fit all items perfectly */
   list-style: none;
   margin: 0;
+  margin-top: 20px;
   padding: 0;
-  /* padding-top: 70px; */
+  padding-top: 85px;
   
   flex-wrap: nowrap; /* ✨ FORCES A SINGLE LINE */
   font-family: "Italiana", sans-serif;
@@ -94,7 +96,7 @@
   text-decoration: none;
   color: #ffffff; 
   font-weight: 900;
-  font-size: 18px; /* Slightly adjusted to ensure perfectly clean fit */
+  font-size: 20px; /* Slightly adjusted to ensure perfectly clean fit */
   letter-spacing: 1px;
   display: flex;
   align-items: center;

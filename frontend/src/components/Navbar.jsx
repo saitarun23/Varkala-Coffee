@@ -65,7 +65,7 @@ const Navbar = () => {
                <a href="#">Cacao</a>
                <div className="mega-menu">
                  <ul>
-                   <li><a href="#">Artisanal Kunafa</a></li>
+                   <li><Link to="/Artisanalkunafa">Artisanal Kunafa</Link></li>
                    <li><a href="#">Cacao Clusters</a></li>
                    <li><a href="#">Origin Chocolate Bars</a></li>
                    <li><a href="#">Chocolate Dragees</a></li>
@@ -75,11 +75,34 @@ const Navbar = () => {
                </div>
              </li>
 
-             <li><a href="#">Bakehouse</a></li>
-             <li><a href="#">Pizza</a></li>
+              <li className="has-mega-menu">
+               <a href="#">Bakehouse</a>
+               <div className="mega-menu">
+                 <ul>
+                  <li><Link to="/Cookies">Cookies</Link></li>
+                   <li><a href="#">Brownies</a></li>
+                   <li><a href="#">Tea Cakes</a></li>
+                   <li><a href="#">Fresh Cakes</a></li>
+                   <li><a href="#">Donuts</a></li>
+                 </ul>
+               </div>
+             </li>
+              <li className="has-mega-menu">
+               <a href="#">Pizza</a>
+               <div className="mega-menu">
+                 <ul>
+                  <li><Link to="/Pizza">Pizza</Link></li>
+                   <li><a href="#">Sandwich</a></li>
+                   <li><a href="#">Burger</a></li>
+                   <li><a href="#">Wraps</a></li>
+                   <li><a href="#">Fried Chicken</a></li>
+                   <li><a href="#">Pasta</a></li>
+                 </ul>
+               </div>
+             </li>
              <li><a href="#">Merchandise</a></li>
              <li><a href="#">Gifting</a></li>
-             <li><a href="#">About us</a></li>
+             <li><a href="/AboutUs">About us</a></li>
              <li className="dropdown">
                <a href="#">Contact <ChevronDown size={14} /></a>
              </li>
