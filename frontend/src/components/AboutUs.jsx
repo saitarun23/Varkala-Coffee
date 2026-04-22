@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/aboutus.css';
-import { ArrowDown, Leaf, Flame, Wind } from 'lucide-react';
+import { Leaf, Flame, Wind } from 'lucide-react';
 
-// Using your existing images as beautiful placeholders
-import about1 from '../assets/images/cacao.jpeg'; // Imagine this as a coffee roasting shot
-import about2 from '../assets/images/product3.jpeg'; // Imagine this as a fresh bread/bakehouse shot
-import about3 from '../assets/images/product1.jpeg'; // Imagine this as a farm/estate shot
+// Using your existing images as beautiful placeholders for the story section
+import about1 from '../assets/images/cacao.jpeg'; 
+import about2 from '../assets/images/product3.jpeg'; 
+import about3 from '../assets/images/product1.jpeg'; 
+
+// IMPORT YOUR LOCAL HERO BACKGROUND IMAGE HERE
+import heroBgImage from '../assets/images/abouthero.png'; 
 
 const AboutUs = () => {
   // Always scroll to top when opening a new page
@@ -13,21 +16,52 @@ const AboutUs = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // ✨ ADVANCED UX: Mouse Parallax State
+  const [parallax, setParallax] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    // Calculate mouse position relative to center of screen
+    const x = (e.clientX - window.innerWidth / 2) / 50; // Divided by 50 for subtle movement
+    const y = (e.clientY - window.innerHeight / 2) / 50;
+    setParallax({ x, y });
+  };
+
   return (
     <div className="about-page">
       
-      {/* --- CINEMATIC HERO SECTION --- */}
-      <section className="about-hero">
-        <div className="about-hero-content">
-          <span className="about-eyebrow">The Varkala Heritage</span>
-          <h1 className="about-title">
+      {/* --- ✨ ADVANCED IMMERSIVE HERO SECTION ✨ --- */}
+      <section 
+        className="about-hero-advanced"
+        onMouseMove={handleMouseMove}
+      >
+        {/* Layer 1: The Animated Background Image (Ken Burns Effect) */}
+        <div className="hero-bg-wrapper">
+          <img src={heroBgImage} alt="Varkala Roastery Background" className="ken-burns-img" />
+        </div>
+
+        {/* Layer 2: A luxurious deep green gradient mask for legibility */}
+        <div className="hero-overlay-mask" />
+
+        {/* Layer 3: The Content (Moves subtly with mouse) */}
+        <div 
+          className="about-hero-content-advanced"
+          style={{
+            transform: `translate(${parallax.x}px, ${parallax.y}px)`,
+          }}
+        >
+          <span className="about-eyebrow-advanced">The Varkala Heritage</span>
+          <h1 className="about-title-advanced">
             Rooted in tradition.<br />
-            <span className="italic-serif">Crafted for tomorrow.</span>
+            <span className="italic-serif-advanced">Crafted for tomorrow.</span>
           </h1>
-          <div className="scroll-indicator">
+
+          {/* Layer 4: Advanced Animated Scroll Indicator */}
+          {/* <div className="scroll-indicator-advanced">
+            <div className="mouse-icon">
+              <div className="mouse-wheel"></div>
+            </div>
             <span>Discover Our Story</span>
-            <ArrowDown size={20} className="bounce-arrow" />
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -66,7 +100,7 @@ const AboutUs = () => {
           </div>
 
           <div className="asymmetrical-images">
-            <img src={about1} alt="Roasting Process" className="img-large parallax-img" />
+            <img src={about1} alt="Roasting Process" className="img-large" />
             <div className="image-caption">
               <span className="caption-line"></span>
               <p>Our master roaster monitoring the Maillard reaction in our vintage drum roaster.</p>

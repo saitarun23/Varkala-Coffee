@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Discover from "./components/Discover";
@@ -20,7 +21,7 @@ function App() {
       <Navbar />
       
       {/* Routes control what goes in the middle based on the URL */}
-      <main style={{ paddingTop: '190px' }}>
+      <main style={{ paddingTop: '137px' }}>
         <Routes>
           
           {/* The Home Page Route */}

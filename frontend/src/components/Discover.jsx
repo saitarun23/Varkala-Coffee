@@ -6,7 +6,6 @@ import coffeeImg from '../assets/images/coffee.jpeg';
 import cacaoImg from '../assets/images/cacao.jpeg';
 import bakehouseImg from '../assets/images/bakehouse.jpeg';
 
-
 const Discover = () => {
   const offerings = [
     {
@@ -18,32 +17,18 @@ const Discover = () => {
     },
     {
       id: "02",
-      title: "Cacao",
+      title: "Fine Cacao",
       description: "Artisanal bean-to-bar chocolate, crafted to showcase the complex tasting notes of Indian cacao.",
       image: cacaoImg,
       align: "align-bottom" // Pushes the middle image down
     },
     {
       id: "03",
-      title: "Bakehouse",
+      title: "Craft Bakehouse",
       description: "Naturally leavened sourdough and buttery, flaky laminated pastries baked fresh daily.",
       image: bakehouseImg,
       align: "align-top"
-    },
-    {
-      id: "04",
-      title: "Pizza",
-      description: "Rotating selection of seasonal beverages and treats that celebrate local ingredients and flavors.",
-      image: coffeeImg, // Reusing the coffee image for demonstration
-      align: "align-bottom"
-    },
-    {
-      id: "05",
-      title: "Gifting",
-      description: "Educational sessions and community events that deepen your appreciation for coffee and cacao.",
-      image: cacaoImg, // Reusing the cacao image for demonstration
-      align: "align-top"
-    } 
+    }
   ];
 
   return (
@@ -51,13 +36,13 @@ const Discover = () => {
       <div className="editorial-container">
         
         {/* Section Header */}
-        <div className="editorial-header">
+        {/* <div className="editorial-header">
           <h2 className="editorial-title">Mastering the Craft</h2>
           <div className="title-line"></div>
           <p className="editorial-subtitle">
             A dedication to origin, process, and the final pour.
           </p>
-        </div>
+        </div> */}
 
         {/* Staggered Arch Grid */}
         <div className="editorial-grid">
@@ -76,7 +61,7 @@ const Discover = () => {
               <div className="card-text-content">
                 {/* <span className="card-number">{item.id}</span> */}
                 <h3 className="card-title">{item.title}</h3>
-                {/* <p className="card-desc">{item.description}</p> */}
+                <p className="card-desc">{item.description}</p>
               </div>
 
             </div>
