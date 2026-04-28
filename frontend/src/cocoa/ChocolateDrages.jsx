@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/specialitycoffee.css';
+import '../styles/artisanalkunafa.css';
 import { ArrowRight, Leaf, Droplets, MapPin } from 'lucide-react';
 
 // Import your local product images
@@ -10,9 +10,9 @@ import coffee3 from '../assets/images/product2.jpeg';
 import coffee4 from '../assets/images/product3.jpeg';
 
 // Import your local video
-import heroVideo1 from '../assets/images/herovideo1.mp4'; 
+import heroVideo2 from '../assets/images/herovideo2.mp4'; 
 
-const SpecialityCoffee = () => {
+const ChocolateDrages = () => {
   // Scroll to top when page loads
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -20,35 +20,35 @@ const SpecialityCoffee = () => {
 
   const collection = [
     {
-      id: "1", // Updated IDs to match your ProductDetails database
-      name: "100% Arabica",
-      roast: "Medium-Dark",
-      notes: "Earthy, Dark Chocolate, Spiced",
-      price: "₹850",
+      id: "1",
+      name: "Cocoa Dragees",
+      roast: "Traditional",
+      notes: "Crispy phyllo, Pistachio, Sweet cream",
+      price: "₹450",
       image: coffee1
     },
     {
       id: "2", 
-      name: "Robusta",
-      roast: "Dark",
-      notes: "Roasted Nuts, Caramel, Red Apple",
-      price: "₹900",
+      name: "Velvet Dragees",
+      roast: "Artisanal",
+      notes: "Caramelized phyllo, Almonds, Custard filling",
+      price: "₹650",
       image: coffee2
     },
     {
       id: "3", 
-      name: "Arabica Peaberry", // Just using your DB items so links work perfectly!
-      roast: "Fresh Baked",
-      notes: "Jasmine, Black Tea, Bergamot",
-      price: "₹300",
+      name: "Truffle Dragees",
+      roast: "Specialty",
+      notes: "Crispy base, Coffee infused cream, Walnut topping",
+      price: "₹550",
       image: coffee3
     },
     {
       id: "4",
-      name: "Limited Edition Blend",
-      roast: "Medium",
-      notes: "Citrus, Floral, Nutty",
-      price: "₹1,200",
+      name: "Crunch Pearls",
+      roast: "Premium",
+      notes: "Golden phyllo, Mixed nuts, Honey drizzle",
+      price: "₹850",
       image: coffee4
     }
   ];
@@ -65,15 +65,15 @@ const SpecialityCoffee = () => {
           muted 
           playsInline
         >
-          <source src={heroVideo1} type="video/mp4" />
+          <source src={heroVideo2} type="video/mp4" />
         </video>
 
         <div className="sp-hero-overlay"></div>
 
         <div className="sp-hero-content-center">
           <h1 className="sp-hero-title-main">
-            <span className="title-solid">Specialty</span>
-            <span className="title-outline">Coffee</span>
+            <span className="title-solid">Chocolate Drages</span>
+            {/* <span className="title-outline">Kunafa</span> */}
           </h1>
         </div>
       </section>
@@ -102,7 +102,7 @@ const SpecialityCoffee = () => {
       {/* --- THE COLLECTION SHOWCASE --- */}
       <section className="sp-collection">
         <div className="sp-collection-header">
-          <h2 className="sp-section-title">Current Offerings</h2>
+          <h2 className="sp-section-title">Our Chocolate Drages Collection</h2>
           <div className="sp-divider"></div>
         </div>
 
@@ -144,4 +144,4 @@ const SpecialityCoffee = () => {
   );
 };
 
-export default SpecialityCoffee;
+export default ChocolateDrages;

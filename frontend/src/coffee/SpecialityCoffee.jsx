@@ -1,0 +1,143 @@
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/specialitycoffee.css';
+import { ArrowRight, Leaf, Droplets, MapPin } from 'lucide-react';
+
+// Import your local product images
+import coffee1 from '../assets/images/coffee4.jpeg';
+import coffee2 from '../assets/images/coffee3.jpeg';
+import coffee3 from '../assets/images/coffee1.jpeg'; 
+import coffee4 from '../assets/images/coffee2.jpeg';
+
+// Import your local video
+import heroVideo1 from '../assets/images/herovideo1.mp4'; 
+
+const SpecialityCoffee = () => {
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const collection = [
+    {
+      id: "1", // Updated IDs to match your ProductDetails database
+      name: "100% Arabica",
+      roast: "Medium-Dark",
+      notes: "Earthy, Dark Chocolate, Spiced",
+      price: "₹850",
+      image: coffee1
+    },
+    {
+      id: "2", 
+      name: "Robusta",
+      roast: "Dark",
+      notes: "Roasted Nuts, Caramel, Red Apple",
+      price: "₹900",
+      image: coffee2
+    },
+    {
+      id: "3", 
+      name: "Arabica Peaberry",
+      roast: "Fresh Baked",
+      notes: "Jasmine, Black Tea, Bergamot",
+      price: "₹300",
+      image: coffee3
+    },
+    {
+      id: "4",
+      name: "Limited Edition Blend",
+      roast: "Medium",
+      notes: "Citrus, Floral, Nutty",
+      price: "₹1,200",
+      image: coffee4
+    }
+  ];
+
+  return (
+    <div className="speciality-page">
+      
+      {/* --- FULL SCREEN CINEMATIC HERO --- */}
+      <section className="sp-fullscreen-hero">
+        <video 
+          className="sp-hero-video-bg" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        >
+          <source src={heroVideo1} type="video/mp4" />
+        </video>
+
+        <div className="sp-hero-overlay"></div>
+
+        <div className="sp-hero-content-center">
+          <h1 className="sp-hero-title-main">
+            {/* <span className="title-solid">Coffee</span> */}
+            {/* <span className="title-outline">Coffee</span> */}
+          </h1>
+        </div>
+      </section>
+
+      {/* --- THE PHILOSOPHY BANNER --- */}
+      {/* <section className="sp-philosophy">
+        <div className="sp-phil-container">
+          <div className="phil-item">
+            <MapPin className="phil-icon" size={28} />
+            <h3>Single Origin</h3>
+            <p>Fully traceable coffees from specific farms and microlots.</p>
+          </div>
+          <div className="phil-item">
+            <Droplets className="phil-icon" size={28} />
+            <h3>Small Batch</h3>
+            <p>Roasted to order in small batches for peak freshness.</p>
+          </div>
+          <div className="phil-item">
+            <Leaf className="phil-icon" size={28} />
+            <h3>Ethical Trade</h3>
+            <p>Direct relationships ensuring fair wages for local farmers.</p>
+          </div>
+        </div>
+      </section> */}
+
+      {/* --- THE COLLECTION SHOWCASE --- */}
+      <section className="sp-collection">
+        <div className="sp-collection-header">
+          <h2 className="sp-section-title">Speciality Coffee</h2>
+          <div className="sp-divider"></div>
+        </div>
+
+        <div className="sp-grid">
+          {collection.map((item) => (
+            /* Wrapped the article in a Link to go to Speciality Coffee Detail */
+            <Link to={`/specialitycoffeedetail/${item.id}`} key={item.id} style={{textDecoration: 'none'}}>
+              <article className="sp-card">
+                
+                <div className="sp-card-visual">
+                  {/* <span className="sp-card-number">0{item.id}</span> */}
+                  <img src={item.image} alt={item.name} className="sp-card-img" />
+                  
+                  <div className="sp-card-action">
+                    <span>View Details</span>
+                  </div>
+                </div>
+
+                <div className="sp-card-info">
+                  <div className="sp-card-meta">
+                    <span>{item.roast}</span>
+                    <span className="sp-price">{item.price}</span>
+                  </div>
+                  <h3 className="sp-card-title">{item.name}</h3>
+                  <p className="sp-card-notes">{item.notes}</p>
+                </div>
+
+              </article>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+    </div>
+  );
+};
+
+export default SpecialityCoffee;

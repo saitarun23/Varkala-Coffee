@@ -29,7 +29,7 @@
 /* Main Header Styles */
 .main-header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   padding: 15px 30px 22px 25px; /* Slightly reduced side padding */
   max-width: 1600px; /* Slightly wider to accommodate all links on one line */
   margin: 0 auto;
@@ -46,7 +46,7 @@
 }
 
 .logo-container .logo {
-  height: 100px; 
+  height: 90px; 
   object-fit: contain;
 }
 
@@ -54,14 +54,14 @@
   width: 1px;
   height: 45px;
   background-color: rgba(253, 253, 248, 0.2); 
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .brand-text {
   display: flex;
   flex-direction: column;
   font-family: "Italiana", sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 2px;
   color: #D2C49A; 
@@ -74,18 +74,18 @@
   flex: 1;
   display: flex;
   justify-content: flex-start; /* Aligns links right next to the logo */
-  margin-left: -140px; /* Push nav links to the left side, below brand text */
+  
 }
 
 .main-nav > ul {
   display: flex;
-  gap: 18px; /* ✨ Reduced gap to fit all items perfectly */
+  gap: 2px; /* ✨ Reduced gap to fit all items perfectly */
   list-style: none;
   margin: 0;
-  margin-top: 20px;
   padding: 0;
-  padding-top: 85px;
-  
+  padding-top: 50px;
+ 
+  margin-left: -14px;
   flex-wrap: nowrap; /* ✨ FORCES A SINGLE LINE */
   font-family: "Italiana", sans-serif;
   align-items: center;
@@ -96,7 +96,7 @@
   text-decoration: none;
   color: #ffffff; 
   font-weight: 900;
-  font-size: 20px; /* Slightly adjusted to ensure perfectly clean fit */
+  font-size: 18px; /* Slightly adjusted to ensure perfectly clean fit */
   letter-spacing: 1px;
   display: flex;
   align-items: center;
@@ -228,6 +228,7 @@
   border: 1px solid rgba(253, 253, 248, 0.3);
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-bottom: 20px;
 }
 
 .btn-account:hover, .btn-cart:hover {

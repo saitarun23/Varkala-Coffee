@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/pizza.css';
-import { ArrowRight, Leaf, Droplets, MapPin } from 'lucide-react';
+import '../styles/pizza.css'; 
 
 // Import your local product images
-import coffee1 from '../assets/images/product1.jpeg';
-import coffee2 from '../assets/images/product4.jpeg';
-import coffee3 from '../assets/images/product2.jpeg'; 
-import coffee4 from '../assets/images/product3.jpeg';
+import product1 from '../assets/images/Pizza.jpeg'; // Pizza
+import FriedChicken from '../assets/images/FriedChicken.jpeg'; // Burger
+import product4 from '../assets/images/product4.jpeg'; // Burger
+import product2 from '../assets/images/product2.jpeg'; // Mocktail
 
 // Import your local video
 import heroVideo3 from '../assets/images/herovideo3.mp4'; 
@@ -18,38 +16,34 @@ const Pizza = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const collection = [
+  const categories = [
     {
       id: "1",
-      name: "Classic Margherita",
-      roast: "Traditional",
-      notes: "Fresh mozzarella, Tomato sauce, Basil",
-      price: "₹450",
-      image: coffee1
+      name: "Gourmet Pizzas",
+      subtitle: "Oven Fired Classics",
+      notes: "Authentic, hand-tossed pizzas loaded with premium ingredients and fresh cheese.",
+      image: product1
     },
     {
       id: "2", 
-      name: "Premium Pepperoni",
-      roast: "Artisanal",
-      notes: "Loaded pepperoni, Mozzarella, Italian herbs",
-      price: "₹650",
-      image: coffee2
+      name: "Crispy Fried Chicken",
+      subtitle: "Golden & Juicy",
+      notes: "Irresistibly crispy on the outside, tender and juicy on the inside.",
+      image: FriedChicken
     },
     {
       id: "3", 
-      name: "Vegetarian Delight",
-      roast: "Specialty",
-      notes: "Bell peppers, Mushrooms, Olives, Onions",
-      price: "₹550",
-      image: coffee3
+      name: "Juicy Burgers",
+      subtitle: "Premium Patties",
+      notes: "Towering, flavor-packed burgers served with our signature house sauces.",
+      image: product4
     },
     {
-      id: "4",
-      name: "Royal BBQ Chicken",
-      roast: "Premium",
-      notes: "BBQ chicken, Onions, Cilantro, Mozzarella",
-      price: "₹850",
-      image: coffee4
+      id: "4", 
+      name: "Refreshing Mocktails",
+      subtitle: "Handcrafted Drinks",
+      notes: "Cool down with our vibrant, mixologist-crafted signature beverages.",
+      image: product2
     }
   ];
 
@@ -73,69 +67,47 @@ const Pizza = () => {
         <div className="sp-hero-content-center">
           <h1 className="sp-hero-title-main">
             <span className="title-solid">Varkala</span>
-            <span className="title-outline">Pizza</span>
+            <span className="title-outline">Menu</span>
           </h1>
         </div>
       </section>
 
-      {/* --- THE PHILOSOPHY BANNER --- */}
-      {/* <section className="sp-philosophy">
-        <div className="sp-phil-container">
-          <div className="phil-item">
-            <MapPin className="phil-icon" size={28} />
-            <h3>Single Origin</h3>
-            <p>Fully traceable coffees from specific farms and microlots.</p>
-          </div>
-          <div className="phil-item">
-            <Droplets className="phil-icon" size={28} />
-            <h3>Small Batch</h3>
-            <p>Roasted to order in small batches for peak freshness.</p>
-          </div>
-          <div className="phil-item">
-            <Leaf className="phil-icon" size={28} />
-            <h3>Ethical Trade</h3>
-            <p>Direct relationships ensuring fair wages for local farmers.</p>
-          </div>
-        </div>
-      </section> */}
-
       {/* --- THE COLLECTION SHOWCASE --- */}
       <section className="sp-collection">
         <div className="sp-collection-header">
-          <h2 className="sp-section-title">Our Pizza Collection</h2>
+          <h2 className="sp-section-title">Explore Our Categories</h2>
           <div className="sp-divider"></div>
         </div>
 
         <div className="sp-grid">
-          {collection.map((item) => (
-            /* Wrapped the article in a Link to go to Product Details */
-            <Link to={`/product/${item.id}`} key={item.id} style={{textDecoration: 'none'}}>
+          {categories.map((item) => (
+            <a 
+              href="https://flan2.ciferon.com/" 
+              key={item.id} 
+              style={{textDecoration: 'none'}}
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               <article className="sp-card">
                 
                 <div className="sp-card-visual">
-                  {/* <span className="sp-card-number">0{item.id}</span> */}
                   <img src={item.image} alt={item.name} className="sp-card-img" />
                   
                   <div className="sp-card-action">
-                    <span>View Details</span>
+                    <span>View Menu</span>
                   </div>
                 </div>
 
                 <div className="sp-card-info">
                   <div className="sp-card-meta">
-                    <span>{item.roast}</span>
-                    <span className="sp-price">{item.price}</span>
+                    <span>{item.subtitle}</span>
                   </div>
                   <h3 className="sp-card-title">{item.name}</h3>
                   <p className="sp-card-notes">{item.notes}</p>
-                  
-                  {/* <button className="sp-add-btn">
-                    Explore Profile <ArrowRight size={16} />
-                  </button> */}
                 </div>
 
               </article>
-            </Link>
+            </a>
           ))}
         </div>
       </section>

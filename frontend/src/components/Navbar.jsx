@@ -62,15 +62,15 @@ const Navbar = () => {
              </li>
              
              <li className="has-mega-menu">
-               <a href="#">Cacao</a>
+               <a href="#">Cocoa</a>
                <div className="mega-menu">
                  <ul>
-                   <li><Link to="/Artisanalkunafa">Artisanal Kunafa</Link></li>
-                   <li><a href="#">Cacao Clusters</a></li>
-                   <li><a href="#">Origin Chocolate Bars</a></li>
-                   <li><a href="#">Chocolate Dragees</a></li>
-                   <li><a href="#">Hot Chocolate Blend</a></li>
-                   <li><a href="#">Stoneground Nut Butters</a></li>
+                   <li><Link to="/Artisanalkunafa">Kunafa</Link></li>
+                   <li><Link to="/clusters">Clusters</Link></li>
+                   <li><Link to="/chocolate-bars">Chocolate Bars</Link></li>
+                   <li><Link to="/chocolate-drages">Chocolate Drages</Link></li>
+                   <li><a href="#">Chocolate Blend</a></li>
+                   <li><a href="#">Nut Butters</a></li>
                  </ul>
                </div>
              </li>
@@ -87,19 +87,8 @@ const Navbar = () => {
                  </ul>
                </div>
              </li>
-              <li className="has-mega-menu">
-               <a href="#">Pizza</a>
-               <div className="mega-menu">
-                 <ul>
-                  <li><Link to="/Pizza">Pizza</Link></li>
-                   <li><a href="#">Sandwich</a></li>
-                   <li><a href="#">Burger</a></li>
-                   <li><a href="#">Wraps</a></li>
-                   <li><a href="#">Fried Chicken</a></li>
-                   <li><a href="#">Pasta</a></li>
-                 </ul>
-               </div>
-             </li>
+             
+             <li><a href="/Pizza">Pizzarian</a></li>
              <li><a href="#">Merchandise</a></li>
              <li><a href="#">Gifting</a></li>
              <li><a href="/AboutUs">About us</a></li>

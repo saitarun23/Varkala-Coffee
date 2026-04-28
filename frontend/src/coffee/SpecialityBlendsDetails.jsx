@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import '../styles/productdetails.css';
+import '../styles/specialitycoffeedetail.css';
 import { ShoppingBag, ArrowLeft, Minus, Plus, Truck, RotateCcw, ShieldCheck, Star, Sparkles, Leaf, Award , PackageCheck} from 'lucide-react';
 // Import local images
-import coffee1 from '../assets/images/coffee1.jpeg';
+import coffee1 from '../assets/images/coffee4.jpeg';
 import coffee2 from '../assets/images/coffee2.jpeg';
 import coffee3 from '../assets/images/coffee3.jpeg';
 import prod1 from '../assets/images/product1.jpeg';
@@ -14,12 +14,12 @@ import prod5 from '../assets/images/product5.jpeg';
 import prod6 from '../assets/images/product6.jpeg';
 
 // Expanded Database
-const productDatabase = {
+const specialityBlendsDatabase = {
   "1": { 
-    name: "Monsoon Malabar", 
+    name: "Arabica", 
     basePrice: 850, 
     images: [coffee1, prod4, prod2, prod6], 
-    category: "Specialty Coffee | 100% Arabica",
+    category: "Specialty Coffee",
     roastLevel: 4, 
     intensity: 4,  
     origin: "Malabar Coast, Karnataka", 
@@ -29,7 +29,7 @@ const productDatabase = {
     desc: "A true historical marvel in a cup. Exposed to the moisture-laden monsoon winds of the Malabar coast, this swelled bean yields a remarkably heavy, syrupy body, practically zero acidity, and deep, brooding flavor notes of roasted nuts and dark cocoa. Best enjoyed black or as a rich French Press."
   },
   "2": { 
-    name: "Kerala Single Estate", 
+    name: "Robusta", 
     basePrice: 450, 
     images: [prod2, prod5, prod3, prod1], 
     category: "Fine Cacao | 72% Dark",
@@ -41,8 +41,8 @@ const productDatabase = {
     notes: ["Wild Berries", "Caramel", "Bright Acidity"], 
     desc: "Sourced directly from a single, family-owned estate nestled in the lush, bio-diverse Idukki mountains. These heirloom cacao beans are slowly roasted and then stone-ground in micro-batches for a full 48 hours to ensure an impeccably smooth, velvety texture."
   },
-  "default": { 
-    name: "Signature Espresso Blend", 
+  "3": { 
+    name: "Signature Blend", 
     basePrice: 900, 
     images: [prod4, prod1, prod3, prod2], 
     category: "Specialty Coffee | Espresso Roast",
@@ -56,9 +56,9 @@ const productDatabase = {
   }
 };
 
-const ProductDetails = () => {
+const SpecialityBlendsDetail = () => {
   const { id } = useParams();
-  const product = productDatabase[id] || productDatabase["default"];
+  const product = specialityBlendsDatabase[id] || specialityBlendsDatabase["default"];
   
   // State Management
   const [quantity, setQuantity] = useState(1);
@@ -142,14 +142,14 @@ const ProductDetails = () => {
           
           {/* Reviews & Hoverable Dots Indicators */}
           <div className="pdp-visual-stats">
-            <div className="reviews-mock">
+            {/* <div className="reviews-mock">
               <Star size={14} fill="#D2C49A" color="#D2C49A"/>
               <Star size={14} fill="#D2C49A" color="#D2C49A"/>
               <Star size={14} fill="#D2C49A" color="#D2C49A"/>
               <Star size={14} fill="#D2C49A" color="#D2C49A"/>
               <Star size={14} fill="#D2C49A" color="#D2C49A"/>
               <span>(59 Reviews)</span>
-            </div>
+            </div> */}
             
             <div className="dots-indicator">
               <span className="dot-label">Intensity:</span>
@@ -305,4 +305,4 @@ const ProductDetails = () => {
   );
 };
 
-export default ProductDetails;
+export default SpecialityBlendsDetail;
